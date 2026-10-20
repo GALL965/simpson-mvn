@@ -1,2 +1,3 @@
-GammaFunction.class
-SimpsonIntegration.class
+edu/usbi/SimpsonIntegration.class
+edu/usbi/GammaFunction.class
+edu/usbi/App.class

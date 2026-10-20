@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GammaFunction.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">simpson</a> &gt; <a href="index.source.html" class="el_package">edu.usbi</a> &gt; <span class="el_source">GammaFunction.java</span></div><h1>GammaFunction.java</h1><pre class="source lang-java linenums">package edu.usbi;
+
+<span class="nc" id="L3">public class GammaFunction {</span>
+<span class="fc" id="L4">    private static final double[] COEFFICIENTS = {</span>
+<span class="fc" id="L5">            0.9999999999998099,</span>
+<span class="fc" id="L6">            676.5203681218851,</span>
+<span class="fc" id="L7">            -1259.1392167224028,</span>
+<span class="fc" id="L8">            771.3234287776531,</span>
+<span class="fc" id="L9">            -176.6150291621406,</span>
+<span class="fc" id="L10">            12.507343278686905,</span>
+<span class="fc" id="L11">            -0.13857109526572012,</span>
+<span class="fc" id="L12">            9.984369578019572e-6,</span>
+<span class="fc" id="L13">            1.5056327351493116e-7</span>
+<span class="fc" id="L14">    };</span>
+
+    public static double computeGamma(double x) {
+<span class="pc bpc" id="L17" title="2 of 4 branches missed.">        if (!Double.isFinite(x) || x &lt;= 0.0) {</span>
+<span class="nc" id="L18">            throw new IllegalArgumentException(&quot;El argumento de Gamma debe ser positivo&quot;);</span>
+        }
+<span class="pc bpc" id="L20" title="1 of 2 branches missed.">        if (x &lt; 0.5) {</span>
+<span class="nc" id="L21">            return Math.PI / (Math.sin(Math.PI * x) * computeGamma(1.0 - x));</span>
+        }
+
+<span class="fc" id="L24">        double shifted = x - 1.0;</span>
+<span class="fc" id="L25">        double series = COEFFICIENTS[0];</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        for (int index = 1; index &lt; COEFFICIENTS.length; index++) {</span>
+<span class="fc" id="L27">            series += COEFFICIENTS[index] / (shifted + index);</span>
+        }
+<span class="fc" id="L29">        double scale = shifted + COEFFICIENTS.length - 1.5;</span>
+<span class="fc" id="L30">        return Math.sqrt(2.0 * Math.PI) * Math.pow(scale, shifted + 0.5)</span>
+<span class="fc" id="L31">                * Math.exp(-scale) * series;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.15.202606040825</span></div></body></html>
