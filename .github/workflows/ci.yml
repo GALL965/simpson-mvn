@@ -2,9 +2,15 @@ name: Java CI
 
 on:
   push:
-    branches: [ main, develop ]
+    branches:
+      - master
+      - main
+      - develop
+
   pull_request:
-    branches: [ main ]
+    branches:
+      - master
+      - main
 
 jobs:
   ci-cd:
@@ -29,4 +35,3 @@ jobs:
         with:
           name: jacoco-report
           path: target/site/jacoco/
-
