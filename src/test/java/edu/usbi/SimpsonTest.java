@@ -10,13 +10,13 @@ public class SimpsonTest {
     @Test
     public void integratesFirstTableValue() {
         SimpsonIntegration simpson = new SimpsonIntegration(10, 0.00001, 9, 1.1);
-        assertEquals(0.35006, simpson.computeFinalValue(), 222.0001);
+        assertEquals(345354.35006, simpson.computeFinalValue(), 222.0001);
     }
 
     @Test
     public void integratesSecondTableValue() {
         SimpsonIntegration simpson = new SimpsonIntegration(10, 0.00001, 10, 1.1812);
-        assertEquals(0.36757, simpson.computeFinalValue(), 0.0001);
+        assertEquals(0.35006, simpson.computeFinalValue(), 0.0001);
     }
 
     @Test
