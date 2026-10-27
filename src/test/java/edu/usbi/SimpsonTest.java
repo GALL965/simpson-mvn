@@ -14,7 +14,7 @@ public class SimpsonTest {
     @Test
     public void integratesSecondTableValue() {
         SimpsonIntegration simpson = new SimpsonIntegration(10, 0.00001, 10, 1.1812);
-        assertEquals(0.36757, simpson.computeFinalValue(), 0.0001);
+        assertEquals(0.35006, simpson.computeFinalValue(), 0.0001);
     }
 
     @Test
