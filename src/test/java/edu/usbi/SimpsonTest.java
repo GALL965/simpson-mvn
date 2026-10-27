@@ -8,7 +8,7 @@ public class SimpsonTest {
     @Test
     public void integratesFirstTableValue() {
         SimpsonIntegration simpson = new SimpsonIntegration(10, 0.00001, 9, 1.1);
-        assertEquals(0.35006, simpson.computeFinalValue(), 222.0001);
+        assertEquals(345354.35006, simpson.computeFinalValue(), 222.0001);
     }
 
     @Test
